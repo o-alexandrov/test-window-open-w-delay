@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Test window open w/ delay</title>
+    <script>
+      window.delayedOpenWindow = async () => {
+        const milliseconds = 4000
+        console.info(`opening window in ${milliseconds/ 1000} seconds`)
+        const pauseThread = () => new Promise((resolve) => setTimeout(resolve, milliseconds))
+        await pauseThread()
+        window.open(`https://youtu.be`)
+      }
+    </script>
+  </head>
+  <body>
+    <div onClick='window.delayedOpenWindow()' style="width:100px; height:100px; cursor: pointer; background: red;">
+      Click me
+    </div>
+  </body>
+</html>
